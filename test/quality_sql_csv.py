@@ -41,5 +41,30 @@ def row_column():
     print("✅ Comparison completed.")
 
 
+def date_format():
+    # Load from database
+    query = "SELECT * FROM SampleDataValidation"
+    df_target = pd.read_sql(query, connection())
+
+    # Load from CSV
+    df_source = pd.read_csv("../sample_data_validation.csv")
+
+    # Ensure DateOfBirth columns are datetime
+    df_target["DateOfBirth"] = pd.to_datetime(df_target["DateOfBirth"], errors='coerce')
+    df_source["DateOfBirth"] = pd.to_datetime(df_source["DateOfBirth"], errors='coerce')
+
+    # Format both to string format "YYYY/MM/DD"
+    target_formatted = df_target["DateOfBirth"].dt.strftime("%Y/%m/%d")
+    source_formatted = df_source["DateOfBirth"].dt.strftime("%Y/%m/%d")
+
+    # Compare row by row
+    for i in range(min(len(target_formatted), len(source_formatted))):
+        if target_formatted[i] != source_formatted[i]:
+            print(f"Row {i+1}: Mismatch → Source: {source_formatted[i]} | Target: {target_formatted[i]}")
+
+    print("✅ Date comparison completed.")
+
+
 # Run the comparison
 row_column()
+date_format()
