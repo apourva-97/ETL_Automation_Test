@@ -1,0 +1,4 @@
+TransactionID,Date,Product,Price,Quantity,Total,CustomerName,Region
+1001,2024-01-15,Widget A,25.0,2,50.0,John Doe,North
+1002,,Widget B,30.0,1,30.0,Jane Smith,West
+1004,,Widget D,20.0,3,60.0,,South

@@ -1,0 +1,5 @@
+TransactionID,Date,Product,Price,Quantity,Total,CustomerName,Region,Status
+1001,2024/01/15, Widget A ,$25.00 ,2,, John Doe , North ,Completed
+1002,2024-01-16,Widget B,$30,1,,Jane Smith,West,Completed
+1003,,Widget C,$15.50,5,,Alice Brown,East,Returned
+1004,2024-01-17,Widget D,$20.00,3,,   ,South,Completed
